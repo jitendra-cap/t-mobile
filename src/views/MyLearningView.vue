@@ -1,12 +1,6 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
-import Left from './assets/icon/icon-chevron-Left.png'
-import Right from './assets/icon/icon-chevron-Right.png'
-import Down from './assets/icon/icon-chevron-down-small.png'
-import holidayIcon from './assets/icon/IconButton.png'
-import './app.scss'
-
 const tableHeight = ref(0)
 const calendarTable = ref(null)
 
@@ -25,63 +19,60 @@ onMounted(() => {
 <template>
   <div class="tmobile-msws">
     <div class="tmobile-msws__title">
-      <div class="tmobile-msws__title-heading">
+      <div class="tmobile-msws__title__heading">
         My Team`s Weekly Schedule <br />
         <h4>All Times are Local</h4>
       </div>
-      <div class="tmobile-msws__title-back"><u>UKG Pro —></u></div>
+      <div class="tmobile-msws__title__back">
+        <a class="anchor" href="#">UKG Pro <font-awesome-icon icon="arrow-right" class="icon" /></a>
+      </div>
     </div>
 
     <div class="tmobile-msws__subheading">
-      <div class="tmobile-msws__subheading__ds">Daily Schedule</div>
-      <div class="tmobile-msws__subheading__ws">Weekly Schedule</div>
+      <div class="tmobile-msws__subheading__borderless">Daily Schedule</div>
+      <div class="tmobile-msws__subheading__border"><a>Weekly Schedule</a></div>
     </div>
 
-    <div class="tmobile-msws__date-selector">
-      <div class="tmobile-msws__date-selector-detail">
+    <div class="tmobile-msws__calendar">
+      <div class="tmobile-msws__calendar__detail">
         <span class="icon-outer">
-          <img :src="Left" class="icon" />
+          <font-awesome-icon icon="chevron-left" class="icon" />
           &nbsp; June 1 - June 7 &nbsp;
-          <img :src="Right" class="icon" />
+          <font-awesome-icon icon="chevron-right" class="icon" />
         </span>
       </div>
-      <div class="tmobile-msws__date-selector-event">
+      <div class="tmobile-msws__calendar__event">
         <span class="icon-outer">
           San Mateo #245 &nbsp;
-          <img :src="Down" class="icon" />
+          <font-awesome-icon icon="chevron-down" class="icon" />
         </span>
       </div>
     </div>
 
-    <div class="tmobile-msws__body">
-      <div class="tmobile-msws__body-container">
-        <div class="tmobile-msws__body-container-calendar">
-          <table class="tmobile-msws__body-container-calendar__calendar-view" ref="calendarTable">
+    <div class="tmobile-msws__div">
+      <div class="tmobile-msws__div__calendar">
+        <div class="tmobile-msws__div__calendar__div">
+          <table class="tmobile-msws__div__calendar__div__table" ref="calendarTable">
             <thead>
-              <tr class="tmobile-msws__body-container-calendar__calendar-view__head">
+              <tr class="tmobile-msws__div__calendar__div__table__head">
                 <th>Employees</th>
-                <th>SUN <span class="date">01</span></th>
-                <th>MON <span class="date">02</span></th>
-                <th>TUE <span class="date">03</span></th>
-                <th id="activeColumn" class="active-column" :style="cssVars">
-                  WED <span class="date">04</span>
-                </th>
-                <th>
-                  <span class="holiday"
-                    >THU <span class="date">&nbsp;05 </span>
-                    <img class="holiday-icon" :src="holidayIcon"
-                  /></span>
-                </th>
-                <th>FRI <span class="date">06</span></th>
-                <th>SAT <span class="date">07</span></th>
+                <th>SUN 01</th>
+                <th>MON 02</th>
+                <th>TUE 03</th>
+                <th id="activeColumn" class="active-column" :style="cssVars">WED 04</th>
+                <th>THU 05</th>
+                <th>FRI 06</th>
+                <th>SAT 07</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td colspan="8" class="emp-group">ASSISTENT MANAGER</td>
+                <td colspan="8" class="tmobile-msws__div__calendar__div__table__e-group">
+                  ASSISTENT MANAGER
+                </td>
               </tr>
 
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td class="full-availability"></td>
                 <td></td>
@@ -91,7 +82,7 @@ onMounted(() => {
                 <td><span class="shift-another-location">OTHER LOC</span></td>
                 <td></td>
               </tr>
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td style="text-align: left">Kai Thompson</td>
                 <td></td>
                 <td class="not-scheduled">
@@ -104,17 +95,21 @@ onMounted(() => {
                   <span class="shift-another-location">OTHER LOC</span>
                 </td>
                 <td class="partial-availability">
-                  <span class="long-timing-tag">08AM - 03PM</span>
+                  <div class="partial-availability-inner">
+                    <span class="long-timing-tag">08AM - 03PM</span>
+                  </div>
                 </td>
                 <td></td>
                 <td></td>
               </tr>
 
               <tr>
-                <td class="emp-group" colspan="8">SALES REPRESENTIVE</td>
+                <td class="tmobile-msws__div__calendar__div__table__e-group" colspan="8">
+                  SALES REPRESENTIVE
+                </td>
               </tr>
 
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td>
                   <a class="anchor" href="#"> <span class="short-timing-tag">08AM - 03PM</span></a>
@@ -138,7 +133,7 @@ onMounted(() => {
                 </td>
                 <td></td>
               </tr>
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td></td>
                 <td></td>
@@ -153,7 +148,7 @@ onMounted(() => {
                 </td>
                 <td></td>
               </tr>
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td></td>
                 <td></td>
@@ -169,9 +164,11 @@ onMounted(() => {
                 <td></td>
               </tr>
               <tr>
-                <td class="emp-group" colspan="8">CUSTOMER CARE</td>
+                <td class="tmobile-msws__div__calendar__div__table__e-group" colspan="8">
+                  CUSTOMER CARE
+                </td>
               </tr>
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td></td>
                 <td></td>
@@ -192,7 +189,7 @@ onMounted(() => {
                 </td>
                 <td></td>
               </tr>
-              <tr class="emp-row">
+              <tr class="tmobile-msws__div__calendar__div__table__e-row">
                 <td>Kai Thompson</td>
                 <td></td>
                 <td></td>
@@ -205,63 +202,57 @@ onMounted(() => {
             </tbody>
           </table>
         </div>
-        <!---Hint section start-->
-        <div class="tmobile-msws__body-container__hint">
-          <table class="tmobile-msws__body-container__hint-section">
-            <tr>
-              <td><span class="short-timing-tag">XX XX - XX XX</span></td>
-              <td>Short Shift</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+        <div class="tmobile-msws__hint-section">
+          <div class="tmobile-msws__hint-section__div">
+            <table class="tmobile-msws__hint-section__hint">
+              <tr>
+                <td><span class="short-timing-tag">XX XX - XX XX</span></td>
+                <td>Short Shift</td>
+                <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
 
-              <td><span class="exception-tag">*EXCP</span></td>
-              <td>Exception</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td><span class="exception-tag">*EXCP</span></td>
+                <td>Exception</td>
+                <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
 
-              <td>
-                <div style="margin-top: -10px" class="full-availability"></div>
-              </td>
-              <td>Full Availability</td>
-              <td rowspan="2">&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td>
+                  <div style="margin-top: -10px" class="full-availability"></div>
+                </td>
+                <td>Full Availability</td>
+                <td rowspan="2">&nbsp; &nbsp; &nbsp; &nbsp;</td>
 
-              <td rowspan="2">
-                <div class="not-scheduled" style="padding: 30px">
-                  <div class="not-scheduled-inner"></div>
-                </div>
-              </td>
-              <td>Not Scheduled</td>
-            </tr>
-            <tr>
-              <td><span class="hint_long-timing">XX XX - XX XX</span></td>
-              <td>Long Shift</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td rowspan="2">
+                  <div class="not-scheduled" style="padding: 30px">
+                    <div class="not-scheduled-inner"></div>
+                  </div>
+                </td>
+                <td>Not Scheduled</td>
+              </tr>
+              <tr>
+                <td><span class="hint_long-timing">XX XX - XX XX</span></td>
+                <td>Long Shift</td>
+                <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
 
-              <td><span class="shift-another-location">Other LOC</span></td>
-              <td>Shift Another Location</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-              <td>
-                <div style="margin-top: -10px" class="partial-availability"></div>
-              </td>
-              <td>Partial Availability</td>
-            </tr>
-          </table>
+                <td><span class="shift-another-location">Other LOC</span></td>
+                <td>Shift Another Location</td>
+                <td>&nbsp; &nbsp; &nbsp; &nbsp;</td>
+                <td>
+                  <div style="margin-top: -10px" class="partial-availability">
+                    <div class="partial-availability-inner"></div>
+                  </div>
+                </td>
+                <td>Partial Availability</td>
+              </tr>
+            </table>
+          </div>
         </div>
-        <!---Hint section Esnd-->
       </div>
     </div>
   </div>
 </template>
-<!-- 
+
 <style lang="scss" scoped>
 * {
-  font-family: 'system-ui';
+  font-family: 'Lato';
   margin: 0px;
   padding: 0px;
 }
@@ -270,38 +261,27 @@ onMounted(() => {
   table {
     table-layout: auto;
   }
-  .anchor {
-    text-decoration: none;
-    color: #0f0c0c;
-  }
-  .icon {
-    cursor: pointer;
-    height: 20px;
-  }
-
   &__title {
     display: flex;
     padding: 20px;
     align-items: center;
-  }
-  &__title-heading {
-    width: 90%;
-    font-size: 30px;
-    color: #121212;
-    font-weight: 700;
 
-    h4 {
-      font-size: 13px;
+    &__heading {
+      width: 90%;
+      font-size: 37px;
+      color: #121212;
+      font-weight: 800;
+
+      h4 {
+        font-size: 13px;
+      }
     }
-  }
 
-  &__title-back {
-    flex: 1;
-    text-align: right !important;
-    margin-top: -38px;
-    color: #121212;
-    cursor: pointer;
-    font-size: 12px;
+    &__back {
+      flex: 1;
+      text-align: right !important;
+      margin-top: -38px;
+    }
   }
 
   &__subheading {
@@ -310,22 +290,22 @@ onMounted(() => {
     text-align: center;
     font-size: 18px;
 
-    &__ds {
+    &__borderless {
       flex: 1;
       padding: 5px;
       border-bottom: 1px solid rgb(219, 200, 200);
       cursor: pointer;
     }
 
-    &__ws {
+    &__border {
       width: 50%;
-      border-bottom: 4px solid #e20074;
+      border-bottom: 4px solid red;
       padding: 5px;
       cursor: pointer;
     }
   }
 
-  &__date-selector {
+  &__calendar {
     display: flex;
     text-align: right;
     font-size: 20px;
@@ -338,28 +318,123 @@ onMounted(() => {
       float: right;
       font-weight: 700;
     }
-  }
-  &__date-selector-detail {
-    width: 60%;
-    font-weight: 700;
+
+    &__detail {
+      width: 60%;
+      font-weight: 700;
+
+      .icon {
+        cursor: pointer;
+        background-color: #f2f1f3;
+        border-radius: 50%;
+        padding: 7px 9px;
+        height: 12px;
+      }
+    }
+
+    &__event {
+      flex: 1;
+      font-weight: 700;
+
+      .icon {
+        cursor: pointer;
+        background-color: #f2f1f3;
+        border-radius: 50%;
+        padding: 7px;
+        height: 12px;
+      }
+    }
   }
 
-  &__date-selector-event {
-    flex: 1;
-    font-weight: 700;
-  }
-
-  &__body {
+  &__div {
     display: flex;
-  }
-  &__body-container {
-    width: 100%;
-    border: 1px solid rgb(219, 200, 200);
-    background-color: #f4f4f4;
-    padding: 20px;
 
-    &__hint {
-      display: flex;
+    &__calendar {
+      width: 100%;
+      border: 1px solid rgb(219, 200, 200);
+      background-color: #f4f4f4;
+      padding: 20px;
+
+      &__div {
+        overflow-y: auto;
+        overflow-x: scroll;
+        height: 80%;
+        width: 100%;
+
+        &__table {
+          border-collapse: collapse;
+          width: 100%;
+
+          &__e-group {
+            background-color: rgb(230, 227, 227);
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            text-align: left !important;
+          }
+          &__e-row {
+            background-color: #ffffff;
+
+            td {
+              &:first-child {
+                font-size: 16px !important;
+                font-weight: normal;
+                text-align: left !important;
+                width: 320px;
+              }
+            }
+            td {
+              padding-top: 25px;
+              padding-bottom: 25px;
+            }
+          }
+
+          &__head {
+            background: #ffffff;
+            position: sticky;
+            top: 0;
+            font-size: 12px;
+
+            th {
+              &:first-child {
+                font-size: 16px !important;
+                font-weight: normal;
+                text-align: left !important;
+                width: 320px;
+              }
+            }
+          }
+
+          th {
+            padding: 7px 5px 7px 5px;
+            border: 1px solid #626d5c;
+            width: 100px;
+            text-align: center;
+            width: 120px;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+          }
+
+          td {
+            padding: 7px 5px 7px 5px;
+            border: 1px solid #626d5c;
+
+            width: 100px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .anchor {
+    text-decoration: none;
+    color: #0f0c0c;
+  }
+
+  &__hint-section {
+    display: flex;
+
+    &__div {
       width: 100%;
       border: 1px solid rgb(219, 200, 200);
       background-color: #fffcfc;
@@ -368,12 +443,11 @@ onMounted(() => {
       margin-top: 20px;
       font-size: 12px;
     }
-    &__hint-section {
+
+    &__hint {
       padding: 5px 10px;
       td {
         padding: 8px;
-        font-weight: 400;
-        font-size: 12px;
       }
 
       .hint_long-timing {
@@ -392,99 +466,20 @@ onMounted(() => {
     }
   }
 
-  &__body-container-calendar {
-    overflow-y: auto;
-    overflow-x: scroll;
-    height: 80%;
-    width: 100%;
-    border: 2px #eae5e5 solid;
-
-    &__calendar-view {
-      border-collapse: collapse;
-      width: 100%;
-      &__head {
-        background: #ffffff;
-        position: sticky;
-        top: 0;
-        font-size: 12px;
-
-        th {
-          &:first-child {
-            font-size: 14px !important;
-            font-weight: normal;
-            text-align: left !important;
-            width: 320px;
-            font-weight: 600;
-          }
-        }
-        .holiday {
-          display: flex;
-          align-items: center;
-          border-collapse: collapse;
-          margin-left: 15px;
-        }
-
-        .holiday-icon {
-          position: relative;
-          height: 35px;
-        }
-        span.date {
-          font-weight: 600;
-          color: #121212;
-        }
-      }
-      .emp-row {
-        background-color: #ffffff;
-
-        td {
-          &:first-child {
-            font-size: 16px !important;
-            font-weight: normal;
-            text-align: left !important;
-            width: 320px;
-          }
-        }
-      }
-      .emp-group {
-        padding: 10px 5px 10px 5px !important;
-        background-color: #e6e6e6;
-        text-align: left !important;
-        font-size: 14px;
-      }
-
-      th {
-        border-width: 4px 2px 0px 2px;
-        border-style: solid;
-        border-color: #f8f7f7;
-        width: 100px;
-        text-align: center;
-        width: 120px;
-      }
-
-      td {
-        padding: 20px 5px 20px 5px;
-        border-width: 4px 2px 0px 2px;
-        border-style: solid;
-        border-color: #f8f7f7;
-        width: 100px;
-        text-align: center;
-      }
-    }
-  }
-
   .full-availability {
-    height: 100% !important;
     position: relative;
 
     &:after {
       content: '';
       position: absolute;
-      background: url('./assets/icon/full_scheduled_icon.png') no-repeat;
-      top: -2px;
-      right: 2px;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      display: block;
+      border-left: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-top: 20px solid #807878;
     }
   }
 
@@ -495,12 +490,31 @@ onMounted(() => {
     &:after {
       content: '';
       position: absolute;
-      background: url('./assets/icon/partial_schedule_icon.png') no-repeat;
-      top: -2px;
-      right: 2px;
+      top: 0;
+      right: 0;
       display: inline-block;
+      margin-right: 1px;
+      margin-top: 1px;
       width: 20px;
       height: 20px;
+      border-top: 2px solid #807878;
+      border-right: 2px solid #807878;
+    }
+  }
+
+  .partial-availability-inner {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: block;
+      margin-right: 4px;
+      margin-top: 4px;
+      width: 13px;
+      height: 13px;
+      border-top: 2px solid #807878;
+      border-right: 2px solid #807878;
     }
   }
 
@@ -596,7 +610,7 @@ onMounted(() => {
     &::after {
       content: '';
       position: absolute;
-      top: -4px;
+      top: 0;
       right: 0;
       left: 0;
       display: inline-block;
@@ -607,4 +621,4 @@ onMounted(() => {
     }
   }
 }
-</style> -->
+</style>
